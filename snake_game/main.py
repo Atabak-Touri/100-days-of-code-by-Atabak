@@ -1,6 +1,8 @@
 import time
 from turtle import Screen, Turtle
 from snake import Snake
+from food import Food
+from scoreboard import Scoreboard
 
 
 screen = Screen()
@@ -11,6 +13,8 @@ screen.tracer(0) # :until we are not commanding update it will not show what's h
 #to prevent the snakes moving apart
 
 snake = Snake()
+food = Food()
+scoreboard = Scoreboard()
 screen.listen()
 screen.onkey(snake.up,"Up")
 screen.onkey(snake.down,"Down")
@@ -25,6 +29,24 @@ while game_is_on:
     screen.update()
     time.sleep(0.1)
     snake.move()
+
+    #detect collision with food
+    if snake.head.distance(food) < 18:
+        # print("nom nom nom")
+        food.refresh()
+        snake.extend()
+        scoreboard.increase_score()
+    #detect collision with wall
+    if snake.head.xcor()> 290 or snake.head.xcor() < -290 or snake.head.ycor()> 290 or snake.head.ycor()< -290:
+        game_is_on = False
+        scoreboard.game_over()
+    #detect collision with head
+    for segment in snake.snakes:
+        if segment == snake.head:
+            pass
+        elif snake.head.distance(segment) <10:
+            game_is_on = False
+            scoreboard.game_over()
 
 # screen.update(): if I put it here, they will never show up as they go forward to infinity and I will never reach the
 # update statement. so I should put it before the for loop

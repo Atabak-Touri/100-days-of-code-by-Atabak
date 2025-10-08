@@ -5,6 +5,7 @@ UP = 90
 DOWN = 270
 RIGHT = 0
 LEFT = 180
+
 class Snake:
 
     def __init__(self): #what should happen when we initialize a new snake object:
@@ -15,11 +16,8 @@ class Snake:
 
     def create_snake(self):
         for position in STARTING_POSITION:
-            snake = Turtle("square")
-            snake.color("white")
-            snake.penup()
-            snake.goto(position)
-            self.snakes.append(snake) #in order to refer to our attribute snakes, we need this self
+            self.add_segment(position)
+ #in order to refer to our attribute snakes, we need this self
 
     def move(self):
         for snk_num in range(len(self.snakes)-1, 0, -1):
@@ -39,4 +37,11 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT :
            self.head.setheading(RIGHT)
-
+    def extend(self):
+        self.add_segment(self.snakes[-1].position()) #this will add the new segment to the position of last segment
+    def add_segment(self, position):
+        snake = Turtle("square")
+        snake.color("white")
+        snake.penup()
+        snake.goto(position)
+        self.snakes.append(snake)
