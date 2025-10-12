@@ -29,4 +29,9 @@ while game_is_on:
     screen.update()
     ball.move()
 
+    #collision with wall. when the y axis is higher than 300, it definitely hit the wall
+    if ball.ycor() > 300 or ball.ycor()<-300:
+        #needs to bounce(needs to be defined in the Ball class)
+        ball.bounce()
+
 screen.exitonclick()
