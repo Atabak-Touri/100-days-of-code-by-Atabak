@@ -6,9 +6,9 @@ from scoreboard import Scoreboard
 
 
 screen = Screen()
-screen.setup(width=600,height=600)
+screen.setup(width=400,height=400)
 screen.bgcolor("black")
-screen.title("karl Snake Game")
+screen.title("Snake Game")
 screen.tracer(0) # :until we are not commanding update it will not show what's happening afterward. I need this statement
 #to prevent the snakes moving apart
 
@@ -27,7 +27,7 @@ game_is_on= True
 
 while game_is_on:
     screen.update()
-    time.sleep(0.)
+    time.sleep(0.4)
     snake.move()
 
     #detect collision with food
@@ -37,7 +37,7 @@ while game_is_on:
         snake.extend()
         scoreboard.increase_score()
     #detect collision with wall
-    if snake.head.xcor()> 290 or snake.head.xcor() < -290 or snake.head.ycor()> 290 or snake.head.ycor()< -290:
+    if snake.head.xcor()> 180 or snake.head.xcor() < -180 or snake.head.ycor()> 180 or snake.head.ycor()< -180:
         game_is_on = False
         scoreboard.game_over()
     #detect collision with head
