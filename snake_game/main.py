@@ -8,7 +8,7 @@ from scoreboard import Scoreboard
 screen = Screen()
 screen.setup(width=600,height=600)
 screen.bgcolor("black")
-screen.title("My Snake Game")
+screen.title("karl Snake Game")
 screen.tracer(0) # :until we are not commanding update it will not show what's happening afterward. I need this statement
 #to prevent the snakes moving apart
 
@@ -27,7 +27,7 @@ game_is_on= True
 
 while game_is_on:
     screen.update()
-    time.sleep(0.1)
+    time.sleep(0.)
     snake.move()
 
     #detect collision with food
