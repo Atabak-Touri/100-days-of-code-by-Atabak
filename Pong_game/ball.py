@@ -21,3 +21,7 @@ class Ball(Turtle):
     def bounce_x(self):
         self.x_move *= -1#it is opposite in terms of direction it used to be. by multiplication to -1
 
+    def reset_position(self):
+        self.goto(0,0)
+        self.bounce_x()
+
