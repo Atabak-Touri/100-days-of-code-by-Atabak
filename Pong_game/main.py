@@ -1,4 +1,4 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from paddle import Paddle
 from ball import Ball
 import time
@@ -30,8 +30,12 @@ while game_is_on:
     ball.move()
 
     #collision with wall. when the y axis is higher than 300, it definitely hit the wall
-    if ball.ycor() > 300 or ball.ycor()<-300:
+    if ball.ycor() > 280 or ball.ycor()<-280:
         #needs to bounce(needs to be defined in the Ball class)
-        ball.bounce()
+        ball.bounce_y()
+
+    #collision with the paddle
+    if ball.distance(right_paddle)< 50 or ball.xcor()> 340 or ball.distance(left_paddle)< 50 and ball.xcor()< -320:
+        ball.bounce_x()
 
 screen.exitonclick()
