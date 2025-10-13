@@ -9,6 +9,7 @@ class Ball(Turtle):
         self.penup()
         self.x_move = 10
         self.y_move = 10
+        self.move_speed = 0.1
 
     def move(self):
         new_x= self.xcor()+ self.x_move #10
@@ -16,12 +17,16 @@ class Ball(Turtle):
         self.goto(new_x,new_y)
 
     def bounce_y(self):
-        self.y_move *= -1#it is opposite in terms of direction it used to be. by multiplication to -1
+        self.y_move *= -1 #it is opposite in terms of direction it used to be. by multiplication to -1
+        self.move_speed *= 0.9
 
     def bounce_x(self):
-        self.x_move *= -1#it is opposite in terms of direction it used to be. by multiplication to -1
+        self.x_move *= -1 #it is opposite in terms of direction it used to be. by multiplication to -1
+        self.move_speed *= 0.9
+
 
     def reset_position(self):
         self.goto(0,0)
+        self.move_speed = 0.1
         self.bounce_x()
 
