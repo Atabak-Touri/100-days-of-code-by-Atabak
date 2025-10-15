@@ -20,5 +20,10 @@ while game_is_on:
     car_manager.create_cars()
     car_manager.move_cars()
 
+    #collision with car
+    for car in car_manager.all_cars:
+        if car.distance(turtle) < 20 :
+            game_is_on = False
+
 
 screen.exitonclick()
