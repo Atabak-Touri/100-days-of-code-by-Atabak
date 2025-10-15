@@ -16,6 +16,5 @@ class Player(Turtle):
         self.setpos(STARTING_POSITION)
 
     def up(self):
-        # self.heading(90)
         self.forward(MOVE_DISTANCE)
 
