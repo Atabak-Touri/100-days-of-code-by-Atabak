@@ -4,7 +4,8 @@ class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0
-        self.high_score = 0
+        with open("data.txt") as file:
+            self.high_score = int(file.read()) #read() is always str! here we need to convert it
         self.color("white")
         self.penup()
         self.goto(0, 165)
@@ -26,6 +27,8 @@ class Scoreboard(Turtle):
         if self.score > self.high_score:
             self.clear()
             self.high_score = self.score
+            with open("data.txt", mode="w") as file:
+                file.write(f"{self.high_score}")
         self.score = 0 #this line needs to be triggered afterward, because if it works in the beginning, it will always be less than high score
         self.update_scoreboard()
     def increase_score(self):
