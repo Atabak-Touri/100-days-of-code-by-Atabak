@@ -27,7 +27,7 @@ game_is_on= True
 
 while game_is_on:
     screen.update()
-    time.sleep(0.4)
+    time.sleep(0.2)
     snake.move()
 
     #detect collision with food
@@ -38,15 +38,17 @@ while game_is_on:
         scoreboard.increase_score()
     #detect collision with wall
     if snake.head.xcor()> 180 or snake.head.xcor() < -180 or snake.head.ycor()> 180 or snake.head.ycor()< -180:
-        game_is_on = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        # game_is_on = False
+        snake.reset()
     #detect collision with head
     for segment in snake.snakes:
         if segment == snake.head:
             pass
         elif snake.head.distance(segment) <10:
-            game_is_on = False
-            scoreboard.game_over()
+            # game_is_on = False
+            scoreboard.reset()
+            snake.reset()
 
 # screen.update(): if I put it here, they will never show up as they go forward to infinity and I will never reach the
 # update statement. so I should put it before the for loop
