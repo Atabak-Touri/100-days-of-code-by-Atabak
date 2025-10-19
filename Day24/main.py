@@ -1,5 +1,9 @@
-file = open("my_file.txt")
-contents = file.read() #as a string
-print(contents)
+# file = open("my_file.txt")
+# contents = file.read() #as a string
+# print(contents)
+#
+# file.close() #once  python opens the file, it uses some resources. so we need to close it!
 
-file.close() #once  python opens the file, it uses some resources. so we need to close it!
+with open("my_file.txt") as file:
+    contents = file.read()  # as a string
+    print(contents)
