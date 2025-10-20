@@ -10,4 +10,12 @@
 #         if row[1] != "temp":
 #             temperature.append(int(row[1]))
 #     print(temperature)
+# How to create a dataframe from scratch
+import pandas
 
+data_dict = {
+    "students": ["Andy", "Josi", "Maria"],
+    "scores" : [16,56, 65]
+}
+data= pandas.DataFrame(data_dict)
+print(data)

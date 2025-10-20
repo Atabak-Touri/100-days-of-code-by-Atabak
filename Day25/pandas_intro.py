@@ -1,6 +1,15 @@
 import pandas
 
 data= pandas.read_csv("weather_data.csv")
+data
+
+
+
+
+
+
+
+
 # print(type(data))
 # temp_data_list= data["temp"].to_list()
 # avg_temp= sum(temp_data_list)/ len(temp_data_list)
@@ -11,6 +20,6 @@ data= pandas.read_csv("weather_data.csv")
 # data_dict= data.to_dict()
 # print(data_dict)
 # print(data[data.temp == data["temp"].max()])
-monday = data[data.day == "Monday"]
-monday_F=monday["temp"] * 9/5 + 32
-print(monday_F)
+# monday = data[data.day == "Monday"]
+# monday_F=monday["temp"] * 9/5 + 32
+# print(monday_F)
