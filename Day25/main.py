@@ -18,4 +18,5 @@ data_dict = {
     "scores" : [16,56, 65]
 }
 data= pandas.DataFrame(data_dict)
+data.to_csv("new_data.csv")
 print(data)
