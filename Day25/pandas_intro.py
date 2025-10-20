@@ -12,5 +12,5 @@ data= pandas.read_csv("weather_data.csv")
 # print(data_dict)
 # print(data[data.temp == data["temp"].max()])
 monday = data[data.day == "Monday"]
-monday_F=(monday["temp"])*9.5 +32
+monday_F=monday["temp"] * 9/5 + 32
 print(monday_F)
